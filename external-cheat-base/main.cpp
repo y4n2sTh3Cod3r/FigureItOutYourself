@@ -1,27 +1,17 @@
-#include "renderer/renderer.h"
+#include "cheats/FindOutYourself.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     LPSTR lpCmdLine, int nCmdShow)
 {
 
-    HWND hwnd = window::InitWindow(hInstance);
-    if (!hwnd) return -1;
-    
-    if (!renderer::init(hwnd))
-    {
-        renderer::destroy();
-        return -1;
-    }
+    FindOutYourself::procID = memory::GetProcID(L"cs2.exe");
+    FindOutYourself::module_base = memory::GetModuleBaseAddress(FindOutYourself::procID, L"client.dll");
 
-    while (!GetAsyncKeyState(VK_F9)  && renderer::running)
+    while (true)
     {
-        renderer::frame();
+        if (GetAsyncKeyState(VK_LSHIFT))
+            FindOutYourself::frame();
     }
-
-    renderer::destroy();
-    UnregisterClass(L"overlay", hInstance);
 
     return 0;
-
-
 }

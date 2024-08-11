@@ -113,6 +113,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -129,6 +130,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -139,7 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cheats\FindOutYourself.h" />
+    <ClInclude Include="cheats\aimbot.h" />
+    <ClInclude Include="cheats\esp.h" />
     <ClInclude Include="math\vector.h" />
     <ClInclude Include="memory\memory.h" />
     <ClInclude Include="renderer\d3dx9.h" />
@@ -157,7 +160,8 @@
     <ClInclude Include="SDK\offsets.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cheats\FindOutYourself.cpp" />
+    <ClCompile Include="cheats\aimbot.cpp" />
+    <ClCompile Include="cheats\esp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="memory\memory.cpp" />
     <ClCompile Include="renderer\renderer.cpp" />

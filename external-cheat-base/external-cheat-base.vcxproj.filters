@@ -30,7 +30,7 @@
     <ClInclude Include="SDK\offsets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cheats\FindOutYourself.h">
+    <ClInclude Include="cheats\aimbot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="renderer\d3dx9.h">
@@ -63,6 +63,9 @@
     <ClInclude Include="renderer\d3dx9xof.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cheats\esp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="renderer\renderer.cpp">
@@ -74,7 +77,10 @@
     <ClCompile Include="memory\memory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cheats\FindOutYourself.cpp">
+    <ClCompile Include="cheats\aimbot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheats\esp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

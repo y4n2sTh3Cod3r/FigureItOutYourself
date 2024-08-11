@@ -1,11 +1,11 @@
-#include "FindOutYourself.h"
+#include "aimbot.h"
 
-float FindOutYourself::distance(vec3 p1, vec3 p2)
+float aimbot::distance(vec3 p1, vec3 p2)
 {
 	return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, pow(p1.z - p2.z, 2)));
 }
 
-void FindOutYourself::frame()
+void aimbot::frame()
 {
 	uintptr_t entityList = memory::Read<uintptr_t>(module_base + client_dll::dwEntityList);
 	if (!entityList)

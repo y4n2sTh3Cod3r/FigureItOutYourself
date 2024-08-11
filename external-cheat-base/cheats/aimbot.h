@@ -6,7 +6,7 @@
 #include "../math/vector.h"
 #include "../memory/memory.h"
 
-namespace FindOutYourself
+namespace aimbot
 {
 	inline uintptr_t module_base;
 	inline uintptr_t procID;

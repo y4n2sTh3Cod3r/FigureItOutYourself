@@ -6,6 +6,9 @@
 #include <cstddef>
 #include <cstdint>
 
+// Module: client.dll
+        // Classes count: 414
+        // Enums count: 7
 namespace client_dll {
     // Alignment: 4
     // Members count: 15

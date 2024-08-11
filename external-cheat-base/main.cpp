@@ -1,17 +1,35 @@
-#include "cheats/FindOutYourself.h"
+#include "cheats/aimbot.h"
+#include "cheats/esp.h"
+#include <thread>
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     LPSTR lpCmdLine, int nCmdShow)
 {
+    HWND hwnd = window::InitWindow(hInstance);
+    if (!hwnd) return -1;
 
-    FindOutYourself::procID = memory::GetProcID(L"cs2.exe");
-    FindOutYourself::module_base = memory::GetModuleBaseAddress(FindOutYourself::procID, L"client.dll");
-
-    while (true)
+    if (!renderer::init(hwnd))
     {
-        if (GetAsyncKeyState(VK_LSHIFT))
-            FindOutYourself::frame();
+        renderer::destroy();
+        return -1;
     }
 
-    return 0;
+
+    aimbot::procID = memory::GetProcID(L"cs2.exe");
+    aimbot::module_base = memory::GetModuleBaseAddress(aimbot::procID, L"client.dll");
+    esp::pID = memory::GetProcID(L"cs2.exe");
+    esp::modBase = memory::GetModuleBaseAddress(esp::pID, L"client.dll");
+
+    std::thread read(esp::loop);
+
+    while (!GetAsyncKeyState(VK_END))
+    {
+        esp::frame();
+
+        if (GetAsyncKeyState(VK_LSHIFT))
+            aimbot::frame();
+    }
+
+    renderer::destroy();
+    UnregisterClass(L"overlay", hInstance);
 }
